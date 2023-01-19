@@ -21,7 +21,7 @@ def get_count_pages(text):
                 recursive=False
             )[-1].find("a").find("span").text
         )
-        return page_count
+        return 1
     return
 
 
@@ -95,6 +95,7 @@ def get_vacancies(link):
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     data = []
     page_count = get_count_pages("python")
     for link in get_links("python", page_count):
@@ -105,3 +106,5 @@ if __name__ == "__main__":
         time.sleep(1)
         with open(r"data\data.json", "w", encoding="utf-8") as f:
             json.dump(data, f, indent=5, ensure_ascii=False)
+    print('All good!')
+    print(f'Elapsed time {time.time() - start_time}')
