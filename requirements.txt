@@ -4,3 +4,5 @@ fake-useragent
 lxml
 pandas
 numpy
+aiohttp
+asyncio
